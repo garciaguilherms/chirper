@@ -29,7 +29,7 @@ const editing = ref(false);
                 <div>
                     <span class="text-gray-800">{{ chirp.user.name }}</span>
                     <small class="ml-2 text-sm text-gray-600">{{ dayjs(chirp.created_at).fromNow() }}</small>
-                    <small v-if="chirp.created_at !== chirp.updated_at" class="text-sm text-gray-600">Edited</small>
+                    <small v-if="chirp.created_at !== chirp.updated_at" class="text-sm text-gray-600"> | Edited</small>
                 </div>
                 <Dropdown v-if="chirp.user.id === $page.props.auth.user.id">
                 <template #trigger>
@@ -41,8 +41,7 @@ const editing = ref(false);
                 </template>
                 
                 <template #content>
-                    <button class="block w-full px-4 py-2 text-left text-sm leading-5 text-gray-700 hover:bg-gray-100 focus:bg-gray-100 transition duration-150 ease-in-out" @click="editing = true">
-                        Edit
+                    <button class="block w-full px-4 py-2 text-left text-sm leading-5 text-gray-700 hover:bg-gray-100 focus:bg-gray-100 transition duration-150 ease-in-out" @click="editing = true">Edit
                     </button>    
                 </template>
                 </Dropdown>
